@@ -1,0 +1,17 @@
+# zsh basic configuration
+export ZSH="/Users/gyzavyalov/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
+
+
+export EDITOR='nvim'
+
+# Disabling active conda prefix 
+export ZSH_DISABLE_COMPFIX=true
+
+# nnn: configuration
+export NNN_COLORS='2222'
+export NNN_FCOLORS='c1e2d72e006033f7c6d6abc4' 
+
+export TERM=xterm-256color
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

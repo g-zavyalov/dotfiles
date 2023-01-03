@@ -1,0 +1,16 @@
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[http]
+	postBuffer = 524288000
+[remote "origin"]
+	prune = true
+[oh-my-zsh]
+	hide-dirty = 1
+[user]
+	name = gyzavyalov
+	email = gyzavyalov@yandex-team.ru
+[core]
+	excludesfile = /Users/gyzavyalov/.gitignore_global

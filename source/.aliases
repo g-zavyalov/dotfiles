@@ -1,0 +1,18 @@
+# nnn shortcut
+alias lc="n -de"
+
+alias la="ls -al"
+alias ll="ls -ll"
+
+alias vim="nvim"
+alias vi="nvim"
+alias oldvim="vim"
+alias py="python3"
+
+# Recursively remove .DS_Store files
+alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Work
+alias bro0="cd ~/Work/browser-0/src"
+alias bro1="cd ~/Work/browser-1/src"
+alias bro2="cd ~/Work/browser-2/src"

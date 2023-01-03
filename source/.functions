@@ -1,0 +1,123 @@
+#!/bin/bash
+
+# Current GCC shortcut
+CPP=c++-12
+
+func stolymp() {
+ mkdir $1
+ cd $1
+ touch $1.cc
+    touch solution.md
+    touch in
+ subl .
+}
+
+func rcpp() {
+ for i in *.cpp; do
+  NAME=`echo "$i" | cut -d'.' -f1`
+  echo Compiling $i to $NAME
+  $CPP -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra $i -o $NAME 
+ done
+}
+
+func __rcc(){
+    for i in *.cc; do
+        NAME=`echo "$i" | cut -d'.' -f1`
+        echo Compiling $i to $NAME
+        $CPP -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra -Wshadow $i -o $NAME 
+    done
+}
+
+func rcc() {
+    __rcc & rcpp & wait
+}
+
+func datedir() {
+    mkdir "$(date +"%Y-%m-%d-$1")"
+}
+
+func bits_precomp() {
+    CPP -std=c++17 -Wall -Wextra -Wshadow -O3 /usr/local/Cellar/gcc/11.3.0_2/include/c++/11/x86_64-apple-darwin21/bits/stdc++.h
+}
+
+func rcp() {
+    NAME=`echo "$1" | cut -d'.' -f1`
+    echo Compiling $1 to $NAME
+    $CPP -std=c++17 -O3 -Wall -Wextra $1 -o $NAME
+}
+
+func otworcpp() {
+    for i in *.cpp; do
+        NAME=`echo "$i" | cut -d'.' -f1`
+        echo Compiling $i to $NAME
+        $CPP -std=c++17 -O2 -Wall -Wextra $i -o $NAME
+    done
+}
+
+
+func gntt() {
+    echo Test in$1 created from clipboard!
+    touch in$1
+    pbpaste > in$1
+}
+
+
+func rcc-format() {
+    cp /usr/local/conf_files/.clang-format .
+    clang-format --style=file $1 > test.cc
+    cat test.cc > $1
+    rm .clang-format test.cc
+}
+
+func competitive() {
+  cd ~/tree
+}
+
+
+func set_contest() {
+    touch in
+ for i in {A..Z}
+ do
+        mkdir $i
+     # cp ~/Env/Snippets/ioi.cpp $i/$i.cc
+        touch $i/$i.cc
+     if [ $i = $1 ]
+     then
+         break
+     fi
+ done
+}
+
+func _worktree_git_add() {
+  echo ">> git worktree add --no-checkout $@"
+  git worktree add --no-checkout "$@"
+  MAIN_GIT_DIR=`echo $(cd \`git rev-parse --git-dir\`; pwd -P)`
+  pushd $MAIN_GIT_DIR/worktrees > /dev/null
+  WORKTREE_DIR=`ls -tU -d $PWD/* | head -n1`
+  ln -s $MAIN_GIT_DIR/info $WORKTREE_DIR/info
+  TREE_GIT_DIR=`cat $WORKTREE_DIR/gitdir`
+  TREE_DIR=`echo $TREE_GIT_DIR | rev | cut -d"/" -f 2- | rev`
+  pushd $TREE_DIR > /dev/null
+  git reset --hard > /dev/null
+  popd > /dev/null
+  popd > /dev/null
+}
+
+func yamb_worktree_make() {
+  MAIN_DIR=`echo \`pwd -P\``
+  WT_DIR=`echo $(realpath -- $1)`
+  _worktree_git_add $WT_DIR
+
+  echo ">> Prepare worktree in $WT_DIR"
+  cd $WT_DIR
+
+  echo ">> is"
+  is
+  cp "$MAIN_DIR/yahooks/browser.config" "$WT_DIR/yahooks/browser.config"
+
+  echo ">> igx"
+  ig -x
+
+  osascript -e "display notification \"created\" with title \"Worktree\" subtitle \"$1\""
+  tput bel
+}
