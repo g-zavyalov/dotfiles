@@ -1,7 +1,10 @@
 #!/bin/bash
 
 # Current GCC shortcut
-CPP=c++-12
+# CPP=c++-12
+
+# Moved to clang cause it is much better : )
+CPP=clang++
 
 func stolymp() {
  mkdir $1
@@ -16,7 +19,7 @@ func rcpp() {
  for i in *.cpp; do
   NAME=`echo "$i" | cut -d'.' -f1`
   echo Compiling $i to $NAME
-  $CPP -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra $i -o $NAME 
+  $CPP -I /Users/gyzavyalov/.env/dotfiles/clang-include-dirs -march=native -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra $i -o $NAME 
  done
 }
 
@@ -24,7 +27,7 @@ func __rcc(){
     for i in *.cc; do
         NAME=`echo "$i" | cut -d'.' -f1`
         echo Compiling $i to $NAME
-        $CPP -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra -Wshadow $i -o $NAME 
+        $CPP -I /Users/gyzavyalov/.env/dotfiles/clang-include-dirs -march=native -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra -Wshadow $i -o $NAME 
     done
 }
 
@@ -37,20 +40,20 @@ func datedir() {
 }
 
 func bits_precomp() {
-    CPP -std=c++17 -Wall -Wextra -Wshadow -O3 /usr/local/Cellar/gcc/11.3.0_2/include/c++/11/x86_64-apple-darwin21/bits/stdc++.h
+    CPP -I /Users/gyzavyalov/.env/dotfiles/clang-include-dirs -march=native -std=c++17 -Wall -Wextra -Wshadow -O3 /usr/local/Cellar/gcc/11.3.0_2/include/c++/11/x86_64-apple-darwin21/bits/stdc++.h
 }
 
 func rcp() {
     NAME=`echo "$1" | cut -d'.' -f1`
     echo Compiling $1 to $NAME
-    $CPP -std=c++17 -O3 -Wall -Wextra $1 -o $NAME
+    $CPP -I /Users/gyzavyalov/.env/dotfiles/clang-include-dirs -std=c++17 -march=native -O3 -Wall -Wextra $1 -o $NAME
 }
 
 func otworcpp() {
     for i in *.cpp; do
         NAME=`echo "$i" | cut -d'.' -f1`
         echo Compiling $i to $NAME
-        $CPP -std=c++17 -O2 -Wall -Wextra $i -o $NAME
+        $CPP -I /Users/gyzavyalov/.env/dotfiles/clang-include-dirs -march=native -std=c++17 -O2 -Wall -Wextra $i -o $NAME
     done
 }
 

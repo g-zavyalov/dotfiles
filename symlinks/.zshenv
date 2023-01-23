@@ -12,3 +12,6 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 
 # Binaries
 export PATH=$PATH:/Users/gyzavyalov/.env/binaries
+
+# Latex
+export PATH=$PATH:/Library/TeX/texbin

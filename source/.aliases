@@ -12,7 +12,11 @@ alias py="python3"
 # Recursively remove .DS_Store files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 
+# Mine common dirs
+alias tree="cd ~/Tree"
+
 # Work
 alias bro0="cd ~/Work/browser-0/src"
 alias bro1="cd ~/Work/browser-1/src"
 alias bro2="cd ~/Work/browser-2/src"
+alias arcadia="cd ~/arcadia"
