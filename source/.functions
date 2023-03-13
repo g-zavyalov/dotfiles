@@ -4,6 +4,7 @@
 # CPP=c++-12
 
 # Moved to clang cause it is much better : )
+
 CPP=clang++
 
 func stolymp() {
@@ -19,7 +20,7 @@ func rcpp() {
  for i in *.cpp; do
   NAME=`echo "$i" | cut -d'.' -f1`
   echo Compiling $i to $NAME
-  $CPP -I /Users/gyzavyalov/.env/dotfiles/clang-include-dirs -march=native -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra $i -o $NAME 
+  $CPP -I /Users/gyzavyalov/.env/dotfiles/clang-include-dirs -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra $i -o $NAME 
  done
 }
 
@@ -27,7 +28,7 @@ func __rcc(){
     for i in *.cc; do
         NAME=`echo "$i" | cut -d'.' -f1`
         echo Compiling $i to $NAME
-        $CPP -I /Users/gyzavyalov/.env/dotfiles/clang-include-dirs -march=native -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra -Wshadow $i -o $NAME 
+        $CPP -I /Users/gyzavyalov/.env/dotfiles/clang-include-dirs -DTEST_LOCAL -std=c++17 -O3 -Wall -Wextra -Wshadow $i -o $NAME 
     done
 }
 

@@ -10,6 +10,9 @@ export PATH=$PATH:/Users/gyzavyalov/.env/depot_tools
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
+#Python pathes
+export PATH="/Users/gyzavyalov/Library/Python/3.9/bin:$PATH"
+
 # Binaries
 export PATH=$PATH:/Users/gyzavyalov/.env/binaries
 

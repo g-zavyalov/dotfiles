@@ -15,6 +15,9 @@ alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 # Mine common dirs
 alias tree="cd ~/Tree"
 
+# Mine common tools
+alias open-cilk-clang++="xcrun /Users/gyzavyalov/.env/custom_compilers/OpenCilk-2.0.0-arm64-Apple-Darwin/bin/clang++"
+
 # Work
 alias bro0="cd ~/Work/browser-0/src"
 alias bro1="cd ~/Work/browser-1/src"

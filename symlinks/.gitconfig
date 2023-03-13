@@ -14,3 +14,6 @@
 	email = gyzavyalov@yandex-team.ru
 [core]
 	excludesfile = /Users/gyzavyalov/.gitignore_global
+	editor = nvim
+[fetch]
+	prune = true
